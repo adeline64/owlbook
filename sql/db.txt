@@ -1,0 +1,333 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
+
+-- Client :  localhost
+-- Généré le :  Dim 12 Mai 2019 à 14:48
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
+
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  ven. 07 juin 2019 à 07:25
+-- Version du serveur :  5.7.21
+-- Version de PHP :  7.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données :  `owlbook`
+--
+
+-- --------------------------------------------------------
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categorie`
+--
+
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE `categorie` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `edition`
+--
+
+DROP TABLE IF EXISTS `edition`;
+CREATE TABLE `edition` (
+  `id` int(11)  NOT NULL,
+  `nom` varchar(150) NOT NULL,
+  `date_publication` datetime NOT NULL,
+  `isbn` varchar(150) NOT NULL,
+  `nb_page` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `edition`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etat`
+--
+
+DROP TABLE IF EXISTS `etat`;
+CREATE TABLE `etat` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `etat`
+--
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `genre`
+--
+
+DROP TABLE IF EXISTS `genre`;
+CREATE TABLE `genre` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `langue`
+--
+
+DROP TABLE IF EXISTS `langue`;
+CREATE TABLE `langue` (
+  `id` int(11) NOT NULL,
+  `locale` varchar(50) NOT NULL,
+  `originale` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `langue`
+--
+
+INSERT INTO `langue` (`id`, `locale`, `originale`) VALUES
+(2, 'Francais', 'Anglais');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `librairie`
+--
+
+DROP TABLE IF EXISTS `librairie`;
+CREATE TABLE `librairie` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `codepostal` varchar(50) NOT NULL,
+  `pays` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+
+--
+-- Structure de la table `livre`
+--
+
+DROP TABLE IF EXISTS `livre`;
+CREATE TABLE IF NOT EXISTS `livre` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(50) NOT NULL,
+  `sousTitre` varchar(50) NOT NULL,
+  `resume` text NOT NULL,
+  `image` varchar(25) NOT NULL,
+  `etat` int(11) NOT NULL DEFAULT '0',
+  `edition` int(11) NOT NULL DEFAULT '0',
+  `mot_cle` varchar(255) NULL,
+  `langue` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `livre`
+--
+
+INSERT INTO `livre` (`id`, `titre`, `sousTitre`, `resume`, `image`, `etat`, `edition`, `mot_cle`, `langue`,`genre`) VALUES
+(1, '40 leçons pour découvrir le grec ancien', '', 'Cet ouvrage s\'adresse à toutes celles et tous ceux qui veulent :  - s\'initier au grec ancien (ou y revenir) - découvrir le plaisir de mieux connaître le français en retrouvant ses origines et ses racines. ', '2.jpg', 4, 1, '0', 1),
+(2, 'Catwoman', 'l\'encyclopédie de la féline fatale', 'Son vrai nom est Selina Kyle, mais elle a eu plus d\'identités qu\'un chat a de vies. Ondulant sensuellement ou usant soudainement de ses griffes aiguisées comme des rasoirs, elle hante les toits de Gotham City... Elle est ensorcelante, mystérieuse, et a toujours un bond d\'avance sur la loi et un certain Chevalier de la Nuit. Elle est Catwoman ! Voleuse de bijoux la plus habile à avoir jamais dérobé un collier de perles, elle ensorcelle tous les hommes qu\'elle rencontre... en particulier Batman. Il aimerait qu\'elle se réinsère, mais il y a en Selina une flamme farouche qu\'on ne pourra jamais étouffer. Catwoman a glissé entre les doigts de Batman à maintes reprises, ne laissant qu\'une légère égratignure de ses griffes ou de son fouet en guise de souvenir... Catwoman : L\'encyclopédie de la Féline Fatale, truffée de superbes et spectaculaires images tirées des bandes-dessinées originales, révèle tous les aspects de cette coquine insaisissable et énigmatique telle qu\'elle est apparue dans les comic-books sur plus de six décennies exaltantes. Les nombreuses réinventions de son personnage, les secrets de sa tanière, ses vols les plus audacieux et sa relation amour-haine avec Batman sont tous fidèlement détaillés. Un livre incontournable pour les fans et la parfaite introduction à la plus grande femme fatale du monde du crime !', '3.jpg', 4, 2, 'super-héros', 1),
+(3, 'De feu et de glace', 'Planètes ardentes', '\"Les planètes géantes sont au coeur de notre histoire. Le chemin parcouru en une génération est immense. Les planètes géantes n\'étaient pour nos ancêtres que des points de lumière dans le ciel. Elles se révèlent aujourd\'hui dans leurs moindres détails : mondes merveilleux, agités d\'énormes boules de gaz, embellis par un étonnant ballet d\'anneaux et de lunes. En quelques décennies, nous en avons appris plus sur les planètes qu\'au cours des quarante siècles qui ont précédé. Mais l\'aventure ne fait que commencer. Avec ce livre, je vous invite à un voyage vers des destinations que nos petits-enfants pourront approcher et que leurs arrière-petits-enfants considéreront comme des étapes de l\'Aventure humaine\", A. B. Un livre exceptionnel qui, à la nouveauté et à la beauté des images, allie l\'actualité la plus récente des découvertes scientifiques et le talent du conteur.', '4.jpg', 4, 3, 'sciences', 1),
+(4, 'Green Lantern', 'Cherche et trouve', 'Vite ! La planète Terre a besoin de toi. Utilise le pouvoir de l\'anneau pour trouver plus de 100 objets cachés et devins toi aussi un Green Lantern !', '5.jpg', 4, 4, 'super-héros', 1),
+(5, 'La grande Imagerie des super-Héros', 'Wonder Woman', 'A travers cette grande imagerie, illustrée avec des images extraites des bandes dessinées, l’enfant va découvrir tout l’univers de cette guerrière dont la mission est de faire régner la justice dans le monde des hommes. D’une très grande beauté, on dit que sa force rivaliserait avec celle de Superman.', '6.jpg', 3, 5, 'super-héros', 1),
+(6, 'Alix senator', 'Les aigles de sang', 'Rome, an 12 avant J-C. L\'empereur Auguste est tout-puissant. Alix a plus de 50 ans. Il est sénateur. Alors que la paix semble enfin régner dans l\'Empire, Agrippa, le gendre d\'Auguste, est tué sauvagement par un aigle, l\'oiseau de Jupiter ! Attentat politique ou malédiction divine, ce sera à Alix de découvrir ce qui se cache derrière cette mort mystérieuse. Avec l\'aide de Titus, son fils, et de Khephren, celui de son compagnon Enak disparu, il découvrira qu\'un terrible ennemi a fait son nid dans les entrailles mêmes de Rome.', '7.jpg', 4, 6, 'rome', 1),
+(7, 'Angel Catbird', 'Métamorphose', 'Par une nuit noire, un jeune ingénieur en génétique est accidentellement muté par sa propre expérience lorsque son ADN est fusionné avec celui d’un chat et d’un hibou ! Devenu une créature hybride, il peut désormais voler et voir dans le noir, mais a aussi une fâcheuse tendance à dormir le jour et à manger des souris ou des petits oiseaux vivants. Nouvelles aptitudes, nouvelles habitudes, pour le meilleur et pour le pire... comment va-t-il gérer cette soudaine transformation ?', '8.jpg', 4, 7, 'super-héros', 1);
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `serie`
+--
+
+DROP TABLE IF EXISTS `serie`;
+CREATE TABLE `serie` (
+  `id` int(11) NOT NULL,
+  `num` varchar(50) NOT NULL,
+  `nom` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE `utilisateur` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `codepostal` varchar(255) NOT NULL,
+  `ville` varchar(50) DEFAULT NULL,
+  `role` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `password`, `adresse`, `codepostal`, `ville`, `role`) VALUES
+(2, 'point test', 'test', 'test@test.test', '$2y$10$UDr86ZS/aMW7Hb11XE1CT.bBzlkXpaaqw.WCMtRV5R3LTtVbmXyVa', 'test', '12345', 'teste', 0);
+
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `edition`
+--
+ALTER TABLE `edition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `etat`
+--
+ALTER TABLE `etat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `langue`
+--
+ALTER TABLE `langue`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `librairie`
+--
+ALTER TABLE `librairie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `livre`
+--
+ALTER TABLE `livre`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `serie`
+--
+ALTER TABLE `serie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `edition`
+--
+ALTER TABLE `edition`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `etat`
+--
+ALTER TABLE `etat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `langue`
+--
+ALTER TABLE `langue`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `librairie`
+--
+ALTER TABLE `librairie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `livre`
+--
+ALTER TABLE `livre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `serie`
+--
+ALTER TABLE `serie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

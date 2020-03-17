@@ -1,0 +1,204 @@
+/*navbar*/
+.OwlBook_NavBarre{
+    background-color: cornflowerblue !important;
+    border-color: white !important;
+    color: white !important;
+}
+
+.navbar_o{
+    color: white !important;
+    padding: 1%;
+    font-size: 20px;
+}
+
+.utilisateur{
+    font-size: 14px;
+    color: white;
+}
+
+.chouette{
+    width: 50px;
+    height: 52px;
+}
+
+.show{
+    
+    margin-top: 2%;
+}
+
+/* 
+.btn-compte{
+    background-color: blue;
+    margin: auto;
+    margin-right: 5px;
+}
+
+.btn-connexion{
+    background-color: blue;
+    margin: auto;
+    color: whitesmoke;
+    margin-right: 5px;
+}
+
+.btn-inscription{
+    color: whitesmoke;
+    background-color: blue;
+}
+
+.btn-deconnexion{
+    background-color: blue;
+} */
+
+
+/*accueil*/
+
+
+.presentation{
+    margin-top: 8%;
+    text-align: center;
+    
+}
+
+.bienvenue{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    margin-left: 25%;
+}
+
+
+/* .btn_deco{
+    background-color: dodgerblue;
+    color: white;
+} */
+
+/* .owl_Deco{
+    font-size: 30px;
+    margin-top: 5px;
+} */
+
+
+.jumbotron{
+    margin-top: 20px;
+}
+
+/* .btn-manga{
+    color:cornflowerblue;
+    background-color: blue;
+}
+
+.btn-roman{
+    background-color:blue;
+    color:cornflowerblue;
+}
+
+.btn-bd{
+    background-color:blue;
+    color:cornflowerblue;
+}
+
+.btn-revue{
+    background-color:blue;
+    color:cornflowerblue;
+} */
+
+
+.btn-modifier{
+    background-color: deepskyblue;
+    color: white;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+/* .btn-suprimer{
+    background-color: deepskyblue;
+    color: white;
+    margin-top: 5px;
+} */
+
+/* .owl_book{
+    text-align: center;
+    margin: auto;
+    /* margin-left: -9%; 
+}
+
+.owl_livre{
+    margin-bottom: 3%;
+    margin-top: 3%;
+    width: 15%;
+} */
+
+.owl_connect{
+    margin: auto !important;
+    margin-top: 3% !important;
+}
+
+.owl_inscrit{
+    margin: auto !important;
+    margin-top: 6% !important;
+}
+
+.owlprofil{
+    margin: auto;
+    margin-top: 3%;
+}
+
+/*moteur recherche */
+
+.rechercher{
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.recherche{
+    text-align: center;
+    margin: auto;
+}
+
+.image_recherche{
+    width: 79%;
+    margin-bottom: 12%;
+}
+
+/*livre*/
+
+.livres{
+    width: 38%;
+    text-align: center !important;
+    margin: auto !important;
+}
+
+.titre{
+    font-size: 160% !important;
+    text-align: center !important;
+    margin: auto !important;
+}
+
+.owl_livres{
+    margin: auto;
+    text-align: center;
+    margin-top: 5%;
+}
+
+
+/*footer*/
+
+.blue{
+    background-color: cornflowerblue !important;
+    color: white;
+    margin-top: 17%;
+}
