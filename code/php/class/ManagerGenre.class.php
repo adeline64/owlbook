@@ -4,12 +4,12 @@
 class ManagerGenre extends Manager{
 
 	public function __construct( $mode = 'prod' ) {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		parent::__construct( $mode );
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM genre WHERE id=:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -19,7 +19,7 @@ class ManagerGenre extends Manager{
 	}
 
 	public function add( $data) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		try {
 			$genre = new genre($data);
 		} catch (LengthException $lengthException) {
@@ -49,7 +49,7 @@ class ManagerGenre extends Manager{
 	}
 
 	public function getAllGenre() {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$stmt = $this->db->query("SELECT * FROM genre");
 		$listeObjetsGenre = array();
 		while ($data =  $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -70,14 +70,14 @@ class ManagerGenre extends Manager{
 	}
 
 	public function update($data){
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($_SESSION,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($_SESSION,true).'</pre>';
 		$req = $this->db->prepare('UPDATE genre SET nom=:nom WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);
 		$req->bindValue('nom', $data->getNom(), PDO::PARAM_STR);
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		if (! $req->execute()) {
 			echo "<br>[debug] Erreur";
 		}

@@ -14,8 +14,8 @@ class role  {
 
 	public function __construct( array $data =[] )
 	{
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
-		//appel du constructeur parent puisqu'on est hérité de ...
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		//appel du constructeur parent puisqu'on est hï¿½ritï¿½ de ...
 	    $this->hydrate($data);
 	}
 
@@ -23,7 +23,7 @@ class role  {
 	 * @return mixed
 	 */
 	public function getId() {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		return $this->id;
 	}
 
@@ -31,7 +31,7 @@ class role  {
 	 * @return mixed
 	 */
 	public function getNom() {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		return $this->nom;
 	}
 
@@ -39,7 +39,7 @@ class role  {
 	 * @return mixed
 	 */
 	public function getDescription() {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		return $this->description;
 	}
 
@@ -47,7 +47,7 @@ class role  {
 	 * @param mixed $id_role
 	 */
 	public function setId( $id ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$id = (int) $id;
 		if ($id > 0)
 		{
@@ -59,7 +59,7 @@ class role  {
 	 * @param mixed $nom
 	 */
 	public function setNom( $nom ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->nom = $nom;
 	}
 
@@ -67,12 +67,12 @@ class role  {
 	 * @param mixed $description
 	 */
 	public function setDescription( $description ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->description = $description;
 	}
 	
 	protected function hydrate($array){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 	    foreach ($array as $key => $value) {
 	        $methodName = 'set'.ucfirst($key);
 	        if(method_exists($this, $methodName)){

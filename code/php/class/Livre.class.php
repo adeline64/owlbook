@@ -19,7 +19,7 @@ class Livre {
 	protected $langue;
 	public function __construct( array $array =[] )
 	{
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->hydrate($array);
 	}
 
@@ -88,7 +88,7 @@ class Livre {
 	 * @param mixed $id_livre
 	 */
 	public function setId( $id ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$id = (int) $id;
 		if ($id > 0)
 		{
@@ -100,7 +100,7 @@ class Livre {
 	 * @param mixed $titre_livre
 	 */
 	public function setTitre( $titre ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->titre = $titre;
 	}
 
@@ -108,7 +108,7 @@ class Livre {
 	 * @param mixed $soustitre
 	 */
 	public function setSousTitre( $sousTitre ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->sousTitre = $sousTitre;
 	}
 
@@ -116,7 +116,7 @@ class Livre {
 	 * @param mixed $resume
 	 */
 	public function setResume( $resume ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->resume = $resume;
 	}
 
@@ -124,7 +124,7 @@ class Livre {
 	 * @param mixed $image_livre
 	 */
 	public function setImage( $image ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->image = $image;
 	}
 
@@ -132,7 +132,7 @@ class Livre {
 	 * @param mixed $etat_livre
 	 */
 	public function setEtat( $etat ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->etat = $etat;
 	}
 
@@ -140,12 +140,12 @@ class Livre {
 	 * @param mixed $nom_editeur
 	 */
 	public function setEdition( $edition ){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->edition = $edition;
 	}
 
 	public function setLangue( $langue ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->langue = $langue;
 	}
 
@@ -153,7 +153,7 @@ class Livre {
 	 * @param mixed $mot_cle
 	 */
 	public function setMot_Cle( $mot_cle ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->mot_cle = $mot_cle;
 	}
 
@@ -162,7 +162,7 @@ class Livre {
 // HYDRATATION
 
 	public function hydrate($array){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		foreach ($array as $key => $value) {
 			$methodName = 'set'.ucfirst($key);
 			if(method_exists($this, $methodName)){

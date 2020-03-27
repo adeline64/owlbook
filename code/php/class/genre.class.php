@@ -8,7 +8,7 @@ class genre {
 
 	public function __construct( array $array =[] )
 	{
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->hydrate($array);
 	}
 
@@ -41,7 +41,7 @@ class genre {
 	}
 
 	protected function hydrate($array){
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		foreach ($array as $key => $value) {
 			$methodName = 'set'.ucfirst($key);
 			if(method_exists($this, $methodName)){

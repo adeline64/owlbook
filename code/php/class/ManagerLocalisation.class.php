@@ -8,7 +8,7 @@ class ManagerLocalisation extends ManagerLibrairie{
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM localisation WHERE id=:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -19,8 +19,8 @@ class ManagerLocalisation extends ManagerLibrairie{
 	}
 
 	public function add( $data) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
-		//bloc try/catch pour gérer les exceptions
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		//bloc try/catch pour gï¿½rer les exceptions
 		//provenant de utilisateur
 		try {
 			$localisation = new localisation( $data);
@@ -60,10 +60,10 @@ class ManagerLocalisation extends ManagerLibrairie{
 	}
 
 	public function update($data){
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($_SESSION,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($_SESSION,true).'</pre>';
 		$req = $this->db->prepare('UPDATE localisation SET nom=:nom, prenom=:prenom, adresse=:adresse, codePostal=:codePostal,ville=:ville,email=:email WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);
 		$req->bindValue('ville', $data->getVille(), PDO::PARAM_STR);

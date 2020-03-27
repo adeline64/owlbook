@@ -14,8 +14,8 @@ class ManagerLivre extends Manager{
 	}
 
 	public function read($id){
-		debug("ID DEMANDE: ");
-		debug($id);
+		// debug("ID DEMANDE: ");
+		// debug($id);
 		$req = "select li.*,ed.nom AS nom_publication, et.nom AS nom_etat,la.originale AS langue_originale";
 		$req .= " from livre li left join edition ed ON ed.id = edition";
 		$req .= " left join langue la ON la.id = langue";
@@ -70,7 +70,7 @@ public function recherche($recherche){
 
 
 	public function add($data) {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		//bloc try/catch pour gérer les exceptions
 		//provenant de utilisateur
 		try {
@@ -83,7 +83,8 @@ public function recherche($recherche){
 			//autre cas (mais pour nous invalide)
 			throw new Exception($exception->GetMessage(),$exception->GetCode());
 		}
-		$req = $this->db->prepare("INSERT INTO livre (titre,sousTitre,resume,image,etat,edition,mot_cle,langue) VALUE (:titre,:sousTitre,:resume,:image,:etat,:edition,:mot_cle,:langue)");
+		$req = $this->db->prepare("INSERT INTO livre (titre,sousTitre,resume,image,etat,edition,mot_cle,langue) 
+		VALUE (:titre,:sousTitre,:resume,:image,:etat,:edition,:mot_cle,:langue)");
 
 		$req->bindValue('titre', $livre->getTitre(), PDO::PARAM_STR);
 		$req->bindValue('sousTitre', $livre->getSousTitre(), PDO::PARAM_STR);
@@ -154,7 +155,7 @@ public function recherche($recherche){
 	     */
 // 	    $offset = (($numPage - 1) * $limite);
 	    
-	    $stmt = $this->db->prepare('SELECT * FROM livre WHERE titre like :like ORDER BY titre DESC');
+	    $stmt = $this->db->prepare('SELECT * FROM livre WHERE titre like :like ORDER BY titre ASC');
 	    $stmt->bindValue('like',str_replace("_","",$numPageAlpha) ."%");
 // 	    $stmt->bindValue('limite',$limite,PDO::PARAM_INT);
 // 	    $stmt->bindValue('offset',$offset,PDO::PARAM_INT);
@@ -190,7 +191,7 @@ public function recherche($recherche){
 	}
 
 	public function update($data) {
-	    debug($data);
+	    // debug($data);
 		try {
 			$livre = new Livre($data);
 		} catch (LengthException $lengthException) {
@@ -221,7 +222,7 @@ public function recherche($recherche){
 	}
 
 	public function delete($id) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		// =>voir  getLivre(id) pour modele
 		$req = "DELETE FROM livre WHERE id=:id";
 		$stmt = $this->db->prepare($req);

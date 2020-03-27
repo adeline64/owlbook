@@ -13,7 +13,7 @@ class ManagerUtilisateur extends Manager{
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM utilisateur WHERE id =:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -24,7 +24,7 @@ class ManagerUtilisateur extends Manager{
 	}
 
 	public function add( $data) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		//bloc try/catch pour g�rer les exceptions
 		//provenant de utilisateur
 		try {
@@ -51,10 +51,10 @@ class ManagerUtilisateur extends Manager{
 	}
 
 	public function update($data){
-        echo '<pre>'.print_r($data,true).'</pre>';
+        // echo '<pre>'.print_r($data,true).'</pre>';
 
-        echo '<br>[debug]SESSION';
-        echo '<pre>'.print_r($_SESSION,true).'</pre>';
+        // echo '<br>[debug]SESSION';
+        // echo '<pre>'.print_r($_SESSION,true).'</pre>';
         $req = $this->db->prepare('UPDATE utilisateur SET nom=:nom, prenom=:prenom, adresse=:adresse, codepostal=:codepostal,ville=:ville,email=:email,role=:role WHERE id =:id');
         $req->bindValue('id', $data->getId(), PDO::PARAM_INT);
         $req->bindValue('nom', $data->getNom(), PDO::PARAM_STR);
@@ -70,7 +70,7 @@ class ManagerUtilisateur extends Manager{
     }
 
 	public function connecte($email,$password) {
-		echo '<br>[debug]Dans "' . __FUNCTION__ . '" [/debug]';
+		// echo '<br>[debug]Dans "' . __FUNCTION__ . '" [/debug]';
 		$req = $this->db->prepare( 'SELECT * FROM utilisateur WHERE email =:email' );
 		$req->bindValue( 'email', $email );
 		$req->execute();

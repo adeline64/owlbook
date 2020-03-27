@@ -14,7 +14,7 @@ class ManagerCategorie extends Manager {
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM categorie WHERE id=:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -26,8 +26,8 @@ class ManagerCategorie extends Manager {
 
 	public function add($data) {
 		try {
-			echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
-			debug($data,true);
+			// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+			// debug($data,true);
 			$categorie = new categorie($data);
 		} catch (LengthException $lengthException) {
 			//cas longueur == 0
@@ -72,10 +72,10 @@ class ManagerCategorie extends Manager {
 	}
 
 	public function update($data){
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
 		$req = $this->db->prepare('UPDATE categorie SET nom=:nom WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);

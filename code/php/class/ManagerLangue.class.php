@@ -8,7 +8,7 @@ class ManagerLangue extends Manager {
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM langue WHERE id=:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -19,7 +19,7 @@ class ManagerLangue extends Manager {
 	}
 
 	public function add( $data) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		//bloc try/catch pour g�rer les exceptions
 		//provenant de utilisateur
 		try {
@@ -34,7 +34,7 @@ class ManagerLangue extends Manager {
 		$req = $this->db->prepare('INSERT INTO langue (locale,originale) VALUES(:locale,:originale)');
 		$req->bindValue('locale', $langue->getlocale(), PDO::PARAM_STR);
 		$req->bindValue('originale', $langue->getOriginale(), PDO::PARAM_STR);
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$executed = $req->execute();
 		if ($executed) {
 			$id = $this->db->lastInsertId();
@@ -51,7 +51,7 @@ class ManagerLangue extends Manager {
 	}
 
 	public function getAllLangue() {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$stmt = $this->db->query("SELECT * FROM langue");
 		$listeObjetsLangue = array();
 		while ($data =  $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -72,10 +72,10 @@ class ManagerLangue extends Manager {
 	}
 
 	public function update($data){
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($_SESSION,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($_SESSION,true).'</pre>';
 		$req = $this->db->prepare('UPDATE langue SET locale=:locale,originale=:originale WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);
 		$req->bindValue('locale', $data->getLocale(), PDO::PARAM_STR);

@@ -44,7 +44,7 @@ class langue {
 	 * @param mixed $id_langue
 	 */
 	public function setId( $id ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$id = (int) $id;
 		if ($id > 0)
 		{
@@ -57,7 +57,7 @@ class langue {
 	 * @param mixed $locale
 	 */
 	public function setLocale( $locale ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->locale = $locale;
 	}
 
@@ -65,7 +65,7 @@ class langue {
 	 * @param mixed $originale
 	 */
 	public function setOriginale( $originale ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->originale = $originale;
 	}
 
@@ -74,7 +74,7 @@ class langue {
 	// HYDRATATION
 
 	protected function hydrate($array){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		foreach ($array as $key => $value) {
 			$methodName = 'set'.ucfirst($key);
 			if(method_exists($this, $methodName)){

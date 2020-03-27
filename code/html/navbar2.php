@@ -24,7 +24,7 @@ if (!empty($_SESSION['utilisateur'])) {
         <a class="nav-link" href="?page=profil">Profil</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="?page=livres&p=1">Livres</a>
+        <a class="nav-link" href="?page=livres">Livres</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="?page=recherche">Recherche</a>
@@ -61,7 +61,7 @@ if (!empty($_SESSION['utilisateur'])) {
         <a class="nav-link" href="?page=accueil">Accueil </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="?page=livres&p=1">Livres</a>
+        <a class="nav-link" href="?page=livres">Livres</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="?page=recherche">Recherche</a>

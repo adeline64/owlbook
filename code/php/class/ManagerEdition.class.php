@@ -9,10 +9,10 @@ class ManagerEdition extends Manager {
 	}
 
 	public function read($id){
-		echo '<pre>'.print_r($id,true).'</pre>';
+		// echo '<pre>'.print_r($id,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($id,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($id,true).'</pre>';
 			$req = $this->db->prepare('SELECT * FROM edition WHERE id=:id');
 			
 			$req->bindValue('id', $id, PDO::PARAM_INT);
@@ -58,7 +58,7 @@ class ManagerEdition extends Manager {
 	}
 
 	public function getAllEdition() {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$stmt = $this->db->query("SELECT * FROM edition");
 		$listeObjetsEdition = array();
 		while ($data =  $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -80,10 +80,10 @@ class ManagerEdition extends Manager {
 
 	public function update($data) {
 
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
 		// => voir addlivre pour modele
 		$req = $this->db->prepare("UPDATE edition set nom=:nom,date_publication=:date_publication,isbn=:isbn,nb_page=:nb_page WHERE id=:id");
@@ -93,7 +93,7 @@ class ManagerEdition extends Manager {
 		$req->bindValue('isbn', $data->getIsbn(), PDO::PARAM_STR);
 		$req->bindValue('nb_page', $data->getNb_Page(), PDO::PARAM_STR);
 		//execution de la requete sur le serveur SQL
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req->execute();
 	}
 

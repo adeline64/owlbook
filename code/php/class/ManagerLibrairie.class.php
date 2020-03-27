@@ -8,7 +8,7 @@ class ManagerLibrairie extends Manager {
 	}
 
 	public function read($id){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$req = $this->db->prepare('SELECT * FROM librairie WHERE id=:id');
 		$req->bindValue('id', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -19,8 +19,8 @@ class ManagerLibrairie extends Manager {
 	}
 
 	public function add( $data) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
-		//bloc try/catch pour gérer les exceptions
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		//bloc try/catch pour gï¿½rer les exceptions
 		//provenant de utilisateur
 		try {
 			$librairie = new librairie( $data);
@@ -57,10 +57,10 @@ class ManagerLibrairie extends Manager {
 	}
 
 	public function update($data){
-		echo '<pre>'.print_r($data,true).'</pre>';
+		// echo '<pre>'.print_r($data,true).'</pre>';
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($_SESSION,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($_SESSION,true).'</pre>';
 		$req = $this->db->prepare('UPDATE librairie SET nom=:nom WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);
 		$req->bindValue('nom', $data->getNom(), PDO::PARAM_STR);

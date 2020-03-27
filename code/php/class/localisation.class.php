@@ -58,7 +58,7 @@ class localisation {
 	 * @param mixed $id_localisation
 	 */
 	public function setId( $id ) {
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		$id = (int) $id;
 		if ($id > 0)
 		{
@@ -95,7 +95,7 @@ class localisation {
 	}
 
 	protected function hydrate($array){
-		echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
+		// echo '<br>[debug]Dans "'.__FUNCTION__.'" [/debug]';
 		foreach ($array as $key => $value) {
 			$methodName = 'set'.ucfirst($key);
 			if(method_exists($this, $methodName)){

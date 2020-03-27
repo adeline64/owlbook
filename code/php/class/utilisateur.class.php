@@ -84,7 +84,7 @@ class utilisateur {
 	 * @param mixed $id_utilisateur
 	 */
 	public function setId( $id ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		$id = (int) $id;
 		if ( $id > 0 ) {
 
@@ -93,13 +93,13 @@ class utilisateur {
 	}
 
 	public function setNom( $nom ){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if (strlen(trim($nom)) > 0)
-			//strlen = Calcule la taille d'une chaîne
-			// trim = Supprime les espaces (ou d'autres caractères) en début et fin de chaîne
+			//strlen = Calcule la taille d'une chaï¿½ne
+			// trim = Supprime les espaces (ou d'autres caractï¿½res) en dï¿½but et fin de chaï¿½ne
 		{
 			if (strpos($nom,"#") !== false)
-				// strpos = Cherche la position de la première occurrence dans une chaîne
+				// strpos = Cherche la position de la premiï¿½re occurrence dans une chaï¿½ne
 			{
 				throw new Exception("Le nom ne peut pas avoir de caracteres speciaux");
 			}
@@ -110,14 +110,14 @@ class utilisateur {
 			}
 			else
 			{
-				//echo "la chaîne $nom est correcte";
+				//echo "la chaï¿½ne $nom est correcte";
 				$this->nom = $nom;
 			}
 		}
 	}
 
 	public function setPrenom( $prenom ){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if (strlen(trim($prenom)) > 0)
 		{
 			if (strpos($prenom,"#") !== false)
@@ -132,14 +132,14 @@ class utilisateur {
 
 			else
 			{
-				//echo "la chaîne $prenom est correcte";
+				//echo "la chaï¿½ne $prenom est correcte";
 				$this->prenom = $prenom;
 			}
 		}
 	}
 
 	public function setAdresse( $adresse ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if (strlen(trim($adresse)) > 0)
 		{
 			$this->adresse = $adresse;
@@ -149,7 +149,7 @@ class utilisateur {
 	}
 
 	public function setCodePostal( $codepostal ){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if (preg_match('/[0-9]{5}/',$codepostal))
 		{
 			$this->codepostal = $codepostal;
@@ -159,7 +159,7 @@ class utilisateur {
 	}
 
 	public function setVille( $ville ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if (strlen(trim($ville)) > 0)
 		{
 			$this->ville = $ville;
@@ -175,7 +175,7 @@ class utilisateur {
 	}
 
 	public function setEmail( $email ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		//1) si la chaine n'est pas vide
 		if (strlen(trim($email)) == 0) {
 			//erreur
@@ -183,18 +183,18 @@ class utilisateur {
 		} else {
 			//pas d'erreur on continue
 			if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				//mail validé
+				//mail validï¿½
 				$this->email = $email;
 				$this->email = $email;
 			} else {
-				//erreur à gérer
+				//erreur ï¿½ gï¿½rer
 				throw new Exception("Le mail est invalide",101); //code 101 == mail invalide
 			}
 		}
 	}
 
 	public function setPassword( $password ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		if ( strlen( trim( $password ) ) == 0 )
 		{
 			//Si le mot de passe est vide
@@ -210,7 +210,7 @@ class utilisateur {
 		if ( strlen( trim( $password ) ) < 6 )
 		{
 			//Si le mot de passe est inf 6 car
-			throw new Exception( "Le mot de passe doit avoir plus de 6 caractères" );
+			throw new Exception( "Le mot de passe doit avoir plus de 6 caractï¿½res" );
 		}
 		/*
 		 TOUT VA BIEN
@@ -230,7 +230,7 @@ class utilisateur {
 	// HYDRATATION
 
 	public function hydrate($array){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]',true);
 		foreach ($array as $key => $value) {
 			$methodName = 'set'.ucfirst($key);
 			if(method_exists($this, $methodName)){

@@ -17,7 +17,7 @@ class edition {
 
 	public function __construct( array $array =[] )
 	{
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->hydrate($array);
 	}
 
@@ -66,7 +66,7 @@ class edition {
 	 * @param mixed $id_edition
 	 */
 	public function setId($id) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$id = (int) $id;
 		if ($id > 0)
 		{
@@ -78,7 +78,7 @@ class edition {
 	 * @param mixed $nom
 	 */
 	public function setNom( $nom ) {
-		debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->nom = $nom;
 	}
 
@@ -88,7 +88,7 @@ class edition {
 	 * @param mixed $date_publication
 	 */
 	public function setDate_publication( $date_publication ){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->date_publication = $date_publication;
 	}
 
@@ -96,7 +96,7 @@ class edition {
 	 * @param mixed $isbn
 	 */
 	public function setIsbn( $isbn ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->isbn = $isbn;
 	}
 
@@ -104,7 +104,7 @@ class edition {
 	 * @param mixed $nb_page
 	 */
 	public function setNb_Page( $nb_page ) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$this->nb_page = $nb_page;
 	}
 

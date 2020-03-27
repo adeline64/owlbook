@@ -13,7 +13,7 @@ class ManagerRole extends Manager {
 	}
 
 	public function read($id){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
 		$req = $this->db->prepare('SELECT * FROM role WHERE id=:id');
 		$req->bindValue('id_role', $id, PDO::PARAM_INT);
 		$req->execute();
@@ -24,9 +24,9 @@ class ManagerRole extends Manager {
 	}
 
 	public function add($data) {
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
-		debug($data);
-		//bloc try/catch pour gérer les exceptions
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// debug($data);
+		//bloc try/catch pour gï¿½rer les exceptions
 		//provenant de utilisateur
 		try {
 			$role = new role($data);
@@ -43,17 +43,17 @@ class ManagerRole extends Manager {
 		$req->execute();
 		$id = $this->db->lastInsertId();
 		$role->setId($id);
-		debug($role);
+		// debug($role);
 	}
 
 	public function update($data){
-	    debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
-		echo '<pre>'.print_r($data,true).'</pre>';
-		//bloc try/catch pour gérer les exceptions
+	    // debug('<br>[debug]Dans "'.__CLASS__."::".__FUNCTION__.'" [/debug]');
+		// echo '<pre>'.print_r($data,true).'</pre>';
+		//bloc try/catch pour gï¿½rer les exceptions
 		//provenant de Client
 
-		echo '<br>[debug]SESSION';
-		echo '<pre>'.print_r($_SESSION,true).'</pre>';
+		// echo '<br>[debug]SESSION';
+		// echo '<pre>'.print_r($_SESSION,true).'</pre>';
 		$req = $this->db->prepare('UPDATE role SET nom =:nom, description =:description WHERE id=:id');
 		$req->bindValue('id', $data->getId(), PDO::PARAM_INT);
 		$req->bindValue('nom', $data->getNom(), PDO::PARAM_STR);
